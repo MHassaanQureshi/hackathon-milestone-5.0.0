@@ -140,8 +140,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle Resume Generation
     var generateCVButton = document.getElementById('generatecv');
     var cvop = document.getElementById('cvop');
+    var userUrl = document.getElementById('share-url');
+    var link = document.querySelector(".link");
     generateCVButton.addEventListener('click', function () {
         cvop.style.display = "block";
+        link.style.display = "block";
         // Update personal details in CV
         var userName = document.getElementById('user-name');
         var userRole = document.getElementById('user-role');
@@ -153,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('number-updated').innerText = "Phone No: ".concat(userContact.value);
         document.getElementById('email-updated').innerText = "Email: ".concat(userEmail.value);
         document.getElementById('address-updated').innerText = "Address: ".concat(userAddress.value);
+        userUrl.innerHTML = "".concat(userName.value, ".vercel.app/resume");
         var userProfile = document.getElementById('profile');
         var profileImage = document.getElementById('profile-updated');
         if (userProfile.files && userProfile.files[0]) {

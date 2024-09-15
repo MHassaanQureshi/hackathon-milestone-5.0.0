@@ -185,9 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Resume Generation
     const generateCVButton = document.getElementById('generatecv') as HTMLButtonElement;
     const cvop = document.getElementById('cvop') as HTMLDivElement;
-
+    const userUrl = document.getElementById('share-url') as HTMLAnchorElement;
+    const link = document.querySelector(".link") as HTMLDivElement;
+   
     generateCVButton.addEventListener('click', () => {
         cvop.style.display = "block";
+        link.style.display = "block";
+
 
         // Update personal details in CV
         const userName = document.getElementById('user-name') as HTMLInputElement;
@@ -201,6 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('number-updated')!.innerText = `Phone No: ${userContact.value}`;
         document.getElementById('email-updated')!.innerText = `Email: ${userEmail.value}`;
         document.getElementById('address-updated')!.innerText = `Address: ${userAddress.value}`;
+        userUrl.innerHTML = `${userName.value}.vercel.app/resume`;
+        
         const userProfile = document.getElementById('profile') as HTMLInputElement;
         const profileImage = document.getElementById('profile-updated') as HTMLImageElement;
         
